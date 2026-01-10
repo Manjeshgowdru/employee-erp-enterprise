@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Employee ERP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div>
+      <div class="logo" data-i18n="app_title">Employee ERP</div>
+      <div class="subtitle" data-i18n="app_subtitle">
+        Enterprise Workforce Management
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <select onchange="setLanguage(this.value)">
+        <option value="en">EN</option>
+        <option value="sk">SK</option>
+      </select>
+      <span class="admin-badge">Admin</span>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+      <h1 data-i18n="page_title">Employee Management</h1>
+      <p data-i18n="page_desc">
+        Manage your organization’s workforce in one centralized system
+      </p>
+    </section>
+
+    <!-- ADD EMPLOYEE CARD -->
+    <section class="card">
+      <h3 data-i18n="add_employee">Add New Employee</h3>
+
+      <form id="employeeForm" class="employee-form">
+        <div class="form-row">
+          <input
+            type="text"
+            id="first_name"
+            placeholder="First Name"
+            required
+          />
+          <input
+            type="text"
+            id="last_name"
+            placeholder="Last Name"
+          />
+        </div>
+
+        <div class="form-row">
+          <input
+            type="email"
+            id="email"
+            placeholder="Work Email"
+            required
+          />
+          <input
+            type="text"
+            id="role"
+            placeholder="Role / Designation"
+          />
+        </div>
+
+        <button type="submit" class="primary-btn" data-i18n="create_employee">
+          Create Employee
+        </button>
+      </form>
+    </section>
+
+    <!-- EMPLOYEES TABLE -->
+    <section class="card">
+      <div class="card-header">
+        <h3 data-i18n="employees">Employees</h3>
+        <button onclick="loadEmployees()" data-i18n="refresh">
+          Refresh
+        </button>
+      </div>
+
+      <table class="employee-table">
+        <thead>
+          <tr>
+            <th data-i18n="th_name">Name</th>
+            <th data-i18n="th_email">Email</th>
+            <th data-i18n="th_role">Role</th>
+            <th data-i18n="th_status">Status</th>
+          </tr>
+        </thead>
+        <tbody id="employeeTable">
+          <tr>
+            <td colspan="4" class="empty">
+              No employees loaded
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- SCRIPT -->
+  <script src="app.js"></script>
+
+</body>
+</html>
