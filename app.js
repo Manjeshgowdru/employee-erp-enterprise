@@ -1,6 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
-
-/* ================= TRANSLATIONS ================= */
+const API_BASE = "https://employee-erp-production.up.railway.app";
 
 const translations = {
   en: {
